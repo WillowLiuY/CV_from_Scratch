@@ -4,11 +4,12 @@ from scipy import signal    # For signal.gaussian function
 from myImageFilter import myImageFilter
 
 def myEdgeFilter(img0, sigma):
-    # YOUR CODE HERE
     """
-    img0: greyscale image
-    sigma: std of the Gaussian smoothing kernel used before edge detection
-    output: the edge magnitutude image
+    Args:
+        img0: greyscale image.
+        sigma: std of the Gaussian smoothing kernel.
+    Returns:
+        img1: the edge magnitutude image
     """
     # 1. Define the Gaussian kernel
     hsize = int(2 * np.ceil(3*sigma) + 1)

@@ -1,13 +1,12 @@
 import numpy as np
 
 def myHoughTransform(img_threshold, rhoRes, thetaRes):
-    # YOUR CODE HERE
     """
-    INPUTS:
+    Args:
         - img_threshold: the edge magnitude image
         - rhoRes: scalar, distance resolution of the Hough transform accumulator in pixels
         - thetaRes: scalar, angular resolution of the accumulator in radians
-    OUTPUTS:
+    Returns:
         - img_hough: Hough transform accumulator matrix
         - rhoScale: arrays of ρ values
         - thetaScale: arrays of θ values

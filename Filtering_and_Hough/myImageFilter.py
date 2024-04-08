@@ -1,11 +1,12 @@
 import numpy as np
 
 def myImageFilter(img0, h):
-    # YOUR CODE HERE
     """
-    img: greyscale image
-    h: convolution filter
-    output: img1 with the same size of img0
+    Args:
+        img: greyscale image.
+        h: convolution filter.
+    Returns
+        img1: has the same size of img0.
     """
     # 1. Padding image with edge values
     h_height, h_width = h.shape

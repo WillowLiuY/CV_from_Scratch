@@ -2,7 +2,6 @@ import numpy as np
 import cv2  # For cv2.dilate function
 
 def myHoughLines(img_hough, nLines):
-    # YOUR CODE HERE
     """
     Args:
         - img_hough: hough accumulator
