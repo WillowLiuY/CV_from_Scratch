@@ -6,6 +6,10 @@ from helper import computeBrief
 from helper import corner_detection
 from helper import plotMatches
 
+"""
+This function is used to detect and match two images.
+"""
+
 def matchPics(I1, I2):
 	"""
 	Args:

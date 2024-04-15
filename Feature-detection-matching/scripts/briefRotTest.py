@@ -4,8 +4,10 @@ from matchPics import matchPics
 from scipy.ndimage import rotate
 import matplotlib.pyplot as plt
 
+'''
+This function investigates how BRIEF works with rotations.
+'''
 
-#Q3.5
 #Read the image and convert to grayscale, if necessary
 image_path = 'cv_cover.jpg'
 image = cv2.imread(image_path)
