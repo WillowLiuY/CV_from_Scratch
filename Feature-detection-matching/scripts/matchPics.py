@@ -13,12 +13,12 @@ This function is used to detect and match two images.
 def matchPics(I1, I2):
 	"""
 	Args:
-	- I1, I2: input images to be matched
+		- I1, I2: input images to be matched
 	Returns:
-	- matches: 
-	- locs1:
-	- locs2:
-	"""
+		- matches: Indices of corresponding feature points in the two images.
+        - locs1: Coordinates (x, y) of the detected features in the first image.
+        - locs2: Coordinates (x, y) of the detected features in the second image.
+    """
 	#I1, I2 : Images to match
 	#Convert Images to GrayScale
 	img1 = cv2.cvtColor(I1, cv2.COLOR_BGR2GRAY)
