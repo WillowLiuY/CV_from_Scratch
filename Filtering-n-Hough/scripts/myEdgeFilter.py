@@ -27,10 +27,13 @@ def myEdgeFilter(img0, sigma):
     img_grad_x, img_grad_y = myImageFilter(img_smoothed, sobel_x), myImageFilter(img_smoothed, sobel_y)
 
     img_grad_magn = np.sqrt(img_grad_x**2 + img_grad_y**2) # Compute gradient magnitude == detected edges before NMS
+    img_grad_magn = np.clip(img_grad_magn, 0, 255)  # Avoid overflow in display
+    img_grad_magn = img_grad_magn.astype(np.uint8)
+    
     img_grad_dirt = np.rad2deg(np.arctan2(img_grad_y, img_grad_x)) # Compute gradient direction
 
     # 3.NMS
-    img1 = np.zeros_like(img_grad_magn)
+    img1 = np.zeros(shape=img_grad_magn.shape)
     for i in range(1, img_grad_magn.shape[0] - 1):
         for j in range(1, img_grad_magn.shape[1] - 1):
             current_orientation = img_grad_dirt[i, j]

@@ -16,7 +16,7 @@ def myImageFilter(img0, h):
     img_padded = np.pad(img0, ((pad_height, pad_height), (pad_width, pad_width)), 'edge')
 
     # 2.Convolution
-    img1 = np.zeros_like(img0)
+    img1 = np.zeros(shape=img0.shape)
 
     for i in range(img1.shape[0]):
         for j in range(img1.shape[1]):
