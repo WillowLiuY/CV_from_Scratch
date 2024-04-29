@@ -22,7 +22,7 @@ def myHoughTransform(img_threshold, rhoRes, thetaRes):
     rhoScale = np.linspace(-rho_max, rho_max, rho_num)
     thetaScale = np.linspace(0, theta_max, theta_num)
 
-    img_hough = np.zeros((rho_num, theta_num)) # Initialize the accumulator (img_hough) as a 2D array filled with zeros. 
+    img_hough = np.zeros((rho_num, theta_num)) # Initialize the accumulator (img_hough) as a 2D array
     
     # 2.Voting
     y_idxs, x_idxs = np.nonzero(img_threshold)
