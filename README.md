@@ -1,1 +1,1 @@
-Basically good for understanding the principals. Have not been optimized for speed yet.
+Scripts written from scratch for understanding the underlying math behind computer vision functions.
