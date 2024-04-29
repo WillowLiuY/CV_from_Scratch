@@ -11,17 +11,16 @@ def myEdgeFilter(img0, sigma):
     Returns:
         img1: the edge magnitutude image
     """
-    # 1. Define the Gaussian kernel
+    # 1.Define a Gaussian kernel to smooth out image
     hsize = int(2 * np.ceil(3*sigma) + 1)
-    gs_kernel = signal.windows.gaussian(hsize, std=sigma).reshape(hsize, 1) # 1D gaussian filter
+    gs_kernel = signal.windows.gaussian(hsize, std=sigma).reshape(hsize, 1) # 1D gaussian
 
     gs_kernel_2d = np.outer(gs_kernel, gs_kernel) # 2D gaussian kernel using outer product
     gs_kernel_2d /= np.sum(gs_kernel_2d) # normalize
 
-    # 2. Convolution with the Gaussian kernel to reduce noise and spurious fine edges
     img_smoothed = myImageFilter(img0, gs_kernel_2d)
 
-    # 3. Compute the gradient at x and y directions using Sobel filter
+    # 2.Compute the x and y gradients using Sobel
     sobel_x = np.array([[1, 0, -1], [2, 0, -2], [1, 0, -1]])
     sobel_y = np.array([[1, 2, 1], [0, 0, 0], [-1, -2, -1]])
 
@@ -30,7 +29,7 @@ def myEdgeFilter(img0, sigma):
     img_grad_magn = np.sqrt(img_grad_x**2 + img_grad_y**2) # Compute gradient magnitude == detected edges before NMS
     img_grad_dirt = np.rad2deg(np.arctan2(img_grad_y, img_grad_x)) # Compute gradient direction
 
-    # 4. NMS
+    # 3.NMS
     img1 = np.zeros_like(img_grad_magn)
     for i in range(1, img_grad_magn.shape[0] - 1):
         for j in range(1, img_grad_magn.shape[1] - 1):

@@ -8,11 +8,11 @@ def myHoughTransform(img_threshold, rhoRes, thetaRes):
         - thetaRes: scalar, angular resolution of the accumulator in radians
     Returns:
         - img_hough: Hough transform accumulator matrix
-        - rhoScale: arrays of ρ values
-        - thetaScale: arrays of θ values
+        - rhoScale: arrays of rho values
+        - thetaScale: arrays of theta values
     """
 
-    # 1. Initialize accumulators
+    # 1.Initialize accumulators
     rho_max = np.hypot(img_threshold.shape[0], img_threshold.shape[1])
     theta_max = np.pi
 
@@ -24,7 +24,7 @@ def myHoughTransform(img_threshold, rhoRes, thetaRes):
 
     img_hough = np.zeros((rho_num, theta_num)) # Initialize the accumulator (img_hough) as a 2D array filled with zeros. 
     
-    # 2. Voting
+    # 2.Voting
     y_idxs, x_idxs = np.nonzero(img_threshold)
     
     for i in range(len(x_idxs)):
